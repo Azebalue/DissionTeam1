@@ -122,11 +122,13 @@ public class Util
         Debug.LogError("[CanvasFinder] 씬에서 Canvas를 찾을 수 없음!");
         return null;
     }
-
+    
+    //Enum크기 반환
     public static int GetEnumCount<T>() where T : Enum
     {
         return Enum.GetNames(typeof(T)).Length;
     }
+
     public static void ApplySliderEffect(Slider slider, int startValue, int deltaValue)
     {
 

@@ -1,7 +1,5 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 #region 데이터목록
 [System.Serializable]

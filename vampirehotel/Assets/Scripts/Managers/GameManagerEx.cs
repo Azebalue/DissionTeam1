@@ -17,26 +17,18 @@ public class GameData{
 
     #region 1. 호텔
     public int day;
-    public float[] _stat;
-    public int[] personality;
-    public float[] _hogamdo; //수정
-    public float stress;
-    public float stamina;
-    public float loyalty;
-    public float majesty;
-
-    #endregion
-
-    #region 2. 국력
     public float money;
+
     #endregion
+
 
     public int year;
     public int month;
 
     public int MaxMonth;
-    //클리어한 엔딩 
-    public Record[] endings = new Record[MAX_ENDING_COUNT];
+
+/*    //클리어한 엔딩 
+    public Record[] endings = new Record[MAX_ENDING_COUNT];*/
 }
 
 public class GameManagerEx
@@ -46,39 +38,15 @@ public class GameManagerEx
 
     #region 1. 능력치
     public int day = 1;
-    public float[] stats = new float[Util.GetEnumCount<stat>()];
-    public int[] personality = new int[Util.GetEnumCount<personality>()];
+
 
     public int statMaxValue = 100;
     public int personalityMaxValue = 5;
-    public float stress
-    {
-        get { return _gameData.stress; }
-        set { _gameData.stress = value;}
-    }
+   
 
-    public float stamina
-    {
-        get { return _gameData.stamina; }
-        set { _gameData.stamina = value; }
-    }
+    #endregion
 
-    public float loyalty
-    {
-        get { return _gameData.loyalty; }
-        set { _gameData.loyalty = value; }
-    }
-
-    public float majesty
-    {
-        get { return _gameData.majesty; }
-        set { _gameData.majesty = value; }
-    }
-
-
-       #endregion
-
-    #region 3. 시간
+    #region 2. 시간
     public int month
     {
         get { return _gameData.month; }
@@ -90,17 +58,6 @@ public class GameManagerEx
         set { _gameData.year = value; }
     }
 
-/*    public IMonthState state
-    {
-        get { return _gameData.state; }
-        set
-        {
-            //state?.Exit();
-            state = value;
-            state.Enter();
-        }
-    }*/
-    
     public int MaxMonth
     {
         get { return _gameData.MaxMonth; }
@@ -129,26 +86,11 @@ public class GameManagerEx
             return;
         }
 
-
-        #region 1. 능력치 초기화
-
-        for ( int i = 0; i < (int) Define.personality.integrity; i++)
-            personality[i] = (int) startData.startValue;
-        
-        for ( int i = 0; i < (int) Define.stat.yeoksahak; i++)
-            stats[i] = startData.startValue;
-        
-
-        stress = startData.startValue;
-        stamina = startData.startValue;
-        majesty = startData.startValue;
-        loyalty = startData.startValue;
-        #endregion
-
         year = startData.year;
         month = startData.month;
         MaxMonth = 12 * 6;
     }
+
     #region Save&Load
 
     public void SaveGame()

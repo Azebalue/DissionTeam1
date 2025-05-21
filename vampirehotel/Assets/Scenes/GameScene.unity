@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 800558037}
   - component: {fileID: 800558036}
   m_Layer: 0
-  m_Name: hotel
+  m_Name: Hotel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,10 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Write: 0
-  "\uC2A4\uD1A0\uB9AC_\uC2A4\uD0B5": 0
-  "\uB300\uD654_\uC2A4\uD0B5": 0
-  "\uD0C0\uC774\uD551\uD6A8\uACFCOn": 0
-  "\uC721\uC131_\uC2A4\uD0B5": 0
   coeffient: 0.5
 --- !u!1 &1369971478
 GameObject:
@@ -856,7 +852,7 @@ GameObject:
   - component: {fileID: 2118427054}
   - component: {fileID: 2118427053}
   m_Layer: 0
-  m_Name: room
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

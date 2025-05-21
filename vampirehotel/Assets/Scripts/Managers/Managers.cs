@@ -36,13 +36,6 @@ public class Managers : MonoBehaviour
     public bool Write = false;
 
 
-    [Header("Story")] 
-    public bool Ω∫≈‰∏Æ_Ω∫≈µ = false;
-    public bool ¥Î»≠_Ω∫≈µ = false;
-    public bool ≈∏¿Ã«Œ»ø∞˙On = false;
-
-    [Header("Stat")]
-    public bool ¿∞º∫_Ω∫≈µ = false;
 
     [SerializeField] public float coeffient = 0.5f;
 

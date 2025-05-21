@@ -46,8 +46,6 @@ public class DataManager
 
         }));
 
-        if (Managers.Instance.½ºÅä¸®_½ºÅµ == true)
-            yield break;
 
         yield return Managers.StartCoroutineStatic(LoadData("CharacterTextData", (json) =>
         {
@@ -59,12 +57,7 @@ public class DataManager
         {
             Characters = JsonUtility.FromJson<_CharacterDataLoader>(json).MakeDict();
 
-            foreach(var character in Characters)
-            {
-                character.Value.name = CharacterTexts[character.Value.textID + Define.nameID];
-                character.Value.position = CharacterTexts[character.Value.textID + Define.positionID];
 
-            }
         }));
 
         yield return Managers.StartCoroutineStatic(LoadData("StoryData", (json) =>

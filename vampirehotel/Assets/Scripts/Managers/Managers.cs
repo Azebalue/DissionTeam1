@@ -75,6 +75,7 @@ public class Managers : MonoBehaviour
     void Update()
     {
         _input.OnUpdate();
+        Time.SimulateTime();
     }
 
     static void Init()
@@ -100,18 +101,9 @@ public class Managers : MonoBehaviour
             _instance = go.GetComponent<Managers>();
 
             init += () => { GameObject.Find("@Scene").AddComponent<GameScene>(); };
-
-            //프리로딩
-/*            Managers.UI.ShowSceneUI<UI_LoadingScene>();
-            if (IsPreloaded == false)
-            {
-                _instance.StartCoroutine(_instance.PreloadData());
-            }*/
-
-            
         }
-    
-       
+
+        //Time.InitTime();
     }
 
     private IEnumerator PreloadData()

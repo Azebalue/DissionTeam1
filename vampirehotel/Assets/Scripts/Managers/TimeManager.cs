@@ -1,10 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
+public enum TimeState
+{
+    morning,
+    day,
+    evening,
+    night
+}
 
 public class TimeManager
 {
+    public TimeState state; //시간대
+
+    public static int morningHour = 8;
+    public static int dayHour = 9;
+    public static int eveningHour = 15;
+    public static int nightHour = 18;
+
+
     public int hour;
     public int minute;
 
@@ -13,36 +25,20 @@ public class TimeManager
 
     public void InitTime()
     {
-        hour = 18;
+        delta = 0;
+        state = TimeState.morning;
+        //Managers.Game.day= 1;
+        //년월도 초기화
+        hour = morningHour;
         minute = 0;
-        ++Managers.Game.SaveData.day;
     }
 
     public void SimulateTime()
     {
-        if (hour < 23)
-        {
+        //인게임 시간 흐름 제어
+        delta += Time.deltaTime;
+        Debug.Log($"{delta}초 경과");
 
-            delta += timeWeight * Time.deltaTime;
-            if (delta > 9)
-            {
-                minute += 1;
-                delta = 0;
-
-                if (minute >= 60)
-                {
-                    ++hour;
-                    minute = 0;
-                }
-
-            }
-
-        }
-        else
-        {
-            //게임 끝
-            //내일
-        }
     }
 
 

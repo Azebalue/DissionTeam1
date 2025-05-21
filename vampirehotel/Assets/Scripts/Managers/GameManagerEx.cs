@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using UnityEngine;
-using static Define;
 
 [Serializable]
 public enum Record
@@ -12,23 +11,51 @@ public enum Record
     Done
 }
 
+public enum Indentity
+{
+    //손님의 정체성
+    human,
+    vampire,
+}
+
+
+
+public class Customer {
+    public Indentity indentity;
+    public string name;
+    public Room room; //할당받은 방
+    public int satisfy; //만족도
+    //단서 배열 
+
+    //손님을 특정 룸에 할당하는 메서드
+
+    //손님이 요청하는 메서드
+}
+
+public class Room
+{
+    Customer customer; //입실한 손님
+
+
+    
+}
+
 [Serializable]
 public class GameData{
 
     #region 1. 호텔
-    public int day;
-    public float money;
+    public int money;
+    public int reputation;
+    public Room[] rooms;
+
 
     #endregion
 
 
     public int year;
     public int month;
+    public int day;
 
-    public int MaxMonth;
-
-/*    //클리어한 엔딩 
-    public Record[] endings = new Record[MAX_ENDING_COUNT];*/
 }
 
 public class GameManagerEx
@@ -37,16 +64,22 @@ public class GameManagerEx
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
     #region 1. 능력치
-    public int day = 1;
-
+    public int _day = 1;
 
     public int statMaxValue = 100;
     public int personalityMaxValue = 5;
-   
+
 
     #endregion
 
     #region 2. 시간
+
+    public int day
+    {
+        get { return _gameData.day; }
+        set { _gameData.day = value; }
+    }
+
     public int month
     {
         get { return _gameData.month; }
@@ -58,11 +91,6 @@ public class GameManagerEx
         set { _gameData.year = value; }
     }
 
-    public int MaxMonth
-    {
-        get { return _gameData.MaxMonth; }
-        set { _gameData.MaxMonth = value; }
-    }
 
 
     #endregion
@@ -88,7 +116,6 @@ public class GameManagerEx
 
         year = startData.year;
         month = startData.month;
-        MaxMonth = 12 * 6;
     }
 
     #region Save&Load

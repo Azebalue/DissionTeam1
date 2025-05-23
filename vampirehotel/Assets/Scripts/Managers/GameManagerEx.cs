@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public enum Record
@@ -25,16 +26,33 @@ public class Customer {
     public string name;
     public Room room; //할당받은 방
     public int satisfy; //만족도
-    //단서 배열 
+    //단서 배열 => 단서 enum or class
 
+
+    //손님이 아침에 등장
     //손님을 특정 룸에 할당하는 메서드
 
+
+    //손님이 밤에 퇴장
+
+
+    //낮 행동
     //손님이 요청하는 메서드
+
+
+    //저녁 행동
+    //손님이 자율적으로 돌아가는.. 메서드?
+
 }
 
 public class Room
 {
-    Customer customer; //입실한 손님
+    public int ID; //고유번호
+    public int cleaness; //청결도변수명 수정!
+    public Customer customer; //입실한 손님
+    public Image roomImage; //방 배경
+
+    //룸 클릭했을때 팝업 띄우는 메서드
 
 
     
@@ -47,7 +65,6 @@ public class GameData{
     public int money;
     public int reputation;
     public Room[] rooms;
-
 
     #endregion
 
@@ -95,6 +112,16 @@ public class GameManagerEx
 
     #endregion
 
+    #region. 호텔
+    public int money
+    {
+        get { return money; }
+        set { money = value; }
+    }
+
+
+    #endregion
+
     #region 4. 기타
     public static int maxStat
     {
@@ -127,6 +154,7 @@ public class GameManagerEx
         {
             Debug.Log($"경로: {Managers.savePath}");
             Debug.LogWarning("[WARNING] 파일이 존재하지 않음. 기본 데이터 생성 중...");
+
             string defaultJson = "{}"; // 기본 JSON 값
             File.WriteAllText(Managers.savePath, defaultJson);
         }

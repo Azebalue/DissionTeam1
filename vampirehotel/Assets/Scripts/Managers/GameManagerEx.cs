@@ -78,7 +78,9 @@ public class GameData{
 public class GameManagerEx
 {
     GameData _gameData = new GameData();
-    public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
+    public GameData SaveData 
+    { get { return _gameData; } 
+        set { _gameData = value; } }
 
     #region 1. 능력치
     public int _day = 1;
@@ -93,32 +95,42 @@ public class GameManagerEx
 
     public int day
     {
-        get { return _gameData.day; }
-        set { _gameData.day = value; }
+        get { return SaveData.day; }
+        set { SaveData.day = value; }
     }
 
     public int month
     {
-        get { return _gameData.month; }
-        set { _gameData.month = value; }
+        get { return SaveData.month; }
+        set { SaveData.month = value; }
     }
     public int year
     {
-        get { return _gameData.year; }
-        set { _gameData.year = value; }
+        get { return SaveData.year; }
+        set { SaveData.year = value; }
     }
 
-
+    public Room[] rooms
+    {
+        get { return SaveData.rooms; }
+        set { SaveData.rooms = value; }
+    }
 
     #endregion
 
     #region. 호텔
     public int money
     {
-        get { return money; }
-        set { money = value; }
+        get { return SaveData.money; }
+        set { SaveData.money = value; }
     }
 
+
+    public int reputation
+    {
+        get { return SaveData.reputation; }
+        set { SaveData.reputation = value; }
+    }
 
     #endregion
 

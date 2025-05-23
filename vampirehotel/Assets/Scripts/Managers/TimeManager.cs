@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public enum TimeState
 {
     morning,
